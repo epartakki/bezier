@@ -20,8 +20,6 @@
     *
     */
 
-    //two version 
-    //improve? sample name
     var canvas;    // DOM object corresponding to the canvas
     var graphics;  // 2D graphics context for drawing on the canvas
 
@@ -164,7 +162,6 @@
       }
     }
 
-
 	
     function draw() {
       //Reminder: Following chunk is from starter
@@ -185,7 +182,7 @@
       //End of Starter chunk
 
 		//Using the idea from "Filling arbitrary Shapes"
-  		function magnet( ) {
+  		function magnet() {
 
         //Points
         var p1 = {x: 130 , y: 60};
@@ -206,68 +203,67 @@
         var c6 = {x: 110, y: 82};
         var c7 = {x: 110, y: 115};
         var c8 = {x: 110, y: 140};
-
-
-        graphics.beginPath( );  
-        graphics.moveTo( p1.x, p1.y );
-        bezierCubic( p1, c1, c2, p4 );  
-        bezierLine( p4, p3 );   
-        bezierCubic( p3, c3, c4, p2 ); 
-        bezierLine( p2, p1 );  
+		
+        
+		//BEGIN BEZIER
+        graphics.beginPath();  
+        graphics.moveTo(p1.x, p1.y);
+        bezierCubic(p1, c1, c2, p4);  
+        bezierLine(p4, p3 );   
+        bezierCubic(p3, c3, c4, p2); 
+        bezierLine(p2, p1);  
         bezierLine(c5, c6);
         bezierLine(c7,c8);
-        graphics.closePath( );   
-        graphics.stroke( );  
-        graphics.fill( );   
+        graphics.closePath();   
+        graphics.stroke();  
+        graphics.fill();           
   		}
+        
 
-
-      //Suggested graphics.lineWidth = 6;
-      graphics.lineWidth = 6;
-      graphics.fillStyle = "#red";
-      magnet( );
+      //Suggested graphics.lineWidth = 3;
+      graphics.lineWidth = 5;
       
-
-      //Variables to control positioning of Bezier Name
-      var top = 350;
-      var bottom = 410;
+      //not working:(
+      graphics.fillStyle = "red";
+      magnet();
+      
 
       //POINTS
       //E
-      E1 = { x: 50, y: top };
-      E2 = { x: 100, y: top };
-      E3 = { x: 50, y: top - 40 };
-      E4 = { x: 100, y: top - 40 };
-      E5 = { x: 50, y: bottom };
-      E6 = { x: 100, y: bottom };
+      E1 = {x: 50, y: 350};
+      E2 = {x: 100, y: 350};
+      E3 = {x: 50, y: 310};
+      E4 = {x: 100, y: 310};
+      E5 = {x: 50, y: 410};
+      E6 = {x: 100, y: 410};
 
       //l
-      l1 = { x: 120, y: bottom };
-      l2 = { x: 155, y: top - 20 };
-      l3 = { x: 110, y: top + 30 };
-      l4 = { x: 110, y: bottom };
-      l5 = { x: 160, y: bottom };
+      l1 = {x: 120, y: 410};
+      l2 = {x: 155, y: 330};
+      l3 = {x: 110, y: 380};
+      l4 = {x: 110, y: 410};
+      l5 = {x: 160, y: 410};
 
       //e
-      e1 = { x: 230, y: bottom - 10 };
-      e2 = { x: 210, y: bottom + 10 };
-      e3 = { x: 190, y: bottom - 20 };
-      e4 = { x: 170, y: bottom - 20 };
-      e5 = { x: 250, y: bottom - 10 };
-      e6 = { x: 210, y: top + 20 };
+      e1 = {x: 230, y: 400};
+      e2 = {x: 210, y: 420};
+      e3 = {x: 190, y: 390};
+      e4 = {x: 170, y: 390};
+      e5 = {x: 250, y: 400};
+      e6 = {x: 210, y: 370};
 
       //n
-      n1 = { x: 260, y: top + 10 }
-      n2 = { x: 260, y: bottom };
-      n3 = { x: 260, y: top + 30 };
-      n4 = { x: 300, y: top - 20 };
-      n5 = { x: 290, y: bottom };
+      n1 = {x: 260, y: 360}
+      n2 = {x: 260, y: 410};
+      n3 = {x: 260, y: 380};
+      n4 = {x: 300, y: 330};
+      n5 = {x: 290, y: 410};
 
       //i
-      i1 = { x: 330, y: top + 20 };
-      i2 = { x: 330, y: bottom };
-      i3 = { x: 330, y: top - 5 };
-      i4 = { x: 330, y: top + 5 };
+      i1 = {x: 330, y: 370};
+      i2 = {x: 330, y: 410};
+      i3 = {x: 330, y: 345};
+      i4 = {x: 330, y: 355};
 
 
       //BEGIN BEZIER
@@ -297,7 +293,7 @@
     }
    
    
-//Animation attempt  
+//Animation planning attempt  
 //   function animation{
 //    var E = [E1, E2, E3, E4, E5, E6];
 //    var l = [l1, l2, l3, l4, l5];
@@ -309,7 +305,7 @@
 //	for (var i = 0; i < arrayLengthE; i++) {
 //    	console.log(myStringArray[i]);
 //		setInterval(animate, 10);		
- //       }
+//       }
 //	}
     
     
