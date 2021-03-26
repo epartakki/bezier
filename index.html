@@ -5,10 +5,13 @@
 
 <body style="background-color:lightblue;">
   <p style="font-size:40px; color:white;"><b>Bezier Curves</b></p>
+  <p style="font-size:20px; color:white;"><i>by Eleni Partakki for CSC240</i></p>
+
 
 <script>
 
-    //improve?  name fix
+    //two version 
+    //improve? sample name
     var canvas;    // DOM object corresponding to the canvas
     var graphics;  // 2D graphics context for drawing on the canvas
     var numPoints = 100;
@@ -156,10 +159,13 @@
           bezierCubicFormula(p0, q1, q2, p1);
         }
 
-        graphics.lineWidth = 15;
+        graphics.lineWidth = 6;
         var top = 300;
-        var bottom = 300;
-
+        var bottom = 360;
+		
+        
+        //POINTS
+		//E
 		E1 = {x:50, y:top};
         E2 = {x:100, y:top};
         E3 = {x:50, y:top-40};
@@ -167,14 +173,68 @@
         E5 = {x:50, y:bottom};
 		E6 = {x:100, y:bottom};
 
-        bezierLine(E1, E2);
+      	//l
+        l1 = {x:120, y:bottom};
+        l2 = {x:155, y:top-20};
+        l3 = {x:110, y:top+30};
+        l4 = {x:110, y:bottom};
+        l5 = {x:160, y:bottom};
+
+
+
+		//e
+        e1 = {x:230, y:bottom-10};
+        e2 = {x: 210, y:bottom+10};
+        e3 = {x:190, y:bottom-20};
+        e4 = {x:170, y:bottom-20};
+        e5 = {x:250, y:bottom-10};
+        e6 = {x:210, y:top + 20};
+
+		//n
+        n1 = {x:260, y:top+10}
+        n2 = {x:260, y:bottom};
+        n3 = {x:260, y:top + 30};
+        n4 = {x:300, y:top-20};
+        n5 = {x:290, y:bottom};
+
+
+		//i
+        i1 = {x:330, y:top+20};
+        i2 = {x:330, y:bottom};
+        i3 = {x:330, y:top-5};
+        i4 = {x:330, y:top+5};
+
+
+		//BEGIN BEZIER
+     	//E
+     	bezierLine(E1, E2);
         bezierLine(E1, E3);
         bezierLine(E3, E4);
         bezierLine(E3, E5);
         bezierLine(E5, E6);
+
+		//l
+        bezierLine(l1, l2);
+        bezierCubic(l2, l3, l4, l5);
+
+
+		//e
+        bezierQuad(e1, e2, e3);
+        bezierCubic(e3, e4, e5, e6);
+        bezierLine(e6,e3)
+		
+        //n
+        bezierLine(n1, n2);
+        bezierQuad(n3, n4, n5);
+
+		//i
+        bezierLine(i1, i2);
+		bezierLine(i3, i4);
+
+
     }
 
-        function init() {
+    function init() {
         canvas = document.getElementById("theCanvas");
         graphics = canvas.getContext("2d");
         draw();  // draw something on the canvas
